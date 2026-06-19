@@ -1,0 +1,7 @@
+com.stem.grupoSenda
+com.stem.grupoSenda.controller
+com.stem.grupoSenda.model
+com.stem.grupoSenda.repository
+com.stem.grupoSenda.service
+com.stem.grupoSenda.service.impl
+com.stem.grupoSenda.util
