@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const idRuta = parametros.get('id');
 
     // Obtenemos los datos del avión del servidor usando su ID
-    const rutaActual = await QuedadaApi.obtenerPorId(idRuta);
+    const rutaActual = await RutaApi.obtenerPorId(idRuta);
 
     //Evita que puedas poner fecha anterior a la actual
     const ahora = new Date();
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         <form id="formulario-crear-quedada" class="needs-validation" novalidate>
         
             <div class="alert alert-light border shadow-sm mb-4">
-                <p class="mb-0"><strong>Ruta asignada:</strong> ${rutaActual.id} - ${rutaActual.ruta.nombre}</p>
+                <p class="mb-0"><strong>Ruta asignada:</strong> ${rutaActual.id} - ${rutaActual.nombre}</p>
             </div>
             
             <h2 class="h5 mb-3 text-muted">Datos de la quedada</h2>
