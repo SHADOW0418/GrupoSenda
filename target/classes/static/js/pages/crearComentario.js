@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         <div class="mb-4 text-center">
             <h1 class="h3 fw-bold">Añadir comentario</h1>
             <p class="text-muted">Quedada: <strong>${quedadaActual.id} - ${quedadaActual.ruta.nombre}</strong> (${quedadaActual.fechaEncuentro})</p>
-        </div>
+    </div>
         
         <form id="formulario-crear-comentario" class="needs-validation" novalidate>
             

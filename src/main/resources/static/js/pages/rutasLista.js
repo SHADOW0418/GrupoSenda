@@ -1,46 +1,51 @@
-import { RutaApi } from '../api/rutaAPI.js';
+import { RutaApi } from "../api/rutaAPI.js";
 //Crear la barra de navegacion
-import { crearBarraNavegacion } from '../components/navbar.js';
+import { crearBarraNavegacion } from "../components/navbar.js";
 
 //Solo se ejecuta cuando se ha creado el dom(html)
-document.addEventListener('DOMContentLoaded', async () => {
-
-    
+document.addEventListener("DOMContentLoaded", async () => {
     //Coge el navbar y le mete la barra de navegacion
-    document.getElementById('navbar').innerHTML = crearBarraNavegacion();
-    const enlaceNabvar = document.querySelector(".indexNavbar")
-    enlaceNabvar.classList.add("colorSeleccionado")
+    document.getElementById("navbar").innerHTML = crearBarraNavegacion();
+    const enlaceNabvar = document.querySelector(".indexNavbar");
+    enlaceNabvar.classList.add("colorSeleccionado");
 
     //Cogo el div root(index) y le cargo todo
-    const root = document.getElementById('root');
-    
+    const root = document.getElementById("root");
+
     //Hace una peticion a la api donde devuelve todas las rutas
     const rutas = await RutaApi.obtenerTodos();
-    
-    let listaruta = '';
-    
+
+    let listaruta = "";
+
     //Crea una lista de rutas y va mostrando todas las rutas
     for (const ruta of rutas) {
         listaruta += `
-            <div class="col-12 col-md-6 col-lg-4 mb-4">
-                
-                <div class="card h-100 shadow-sm border-0" style="background-color: #FDFBF7;">
-                    <div class="card-body d-flex flex-column">
-                        
-                        <h5 class="card-title fw-bold">${ruta.nombre}</h5>
-                        
-                        <p class="card-text text-muted mb-4">${ruta.descripcion}</p>
-                        
-                        <a href="rutaDetalle.html?id=${ruta.id}" class="btn btn-primary mt-auto w-100 fw-bold">
-                            Ver detalles
-                        </a>
-                        
-                    </div>
+        <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <div class="card h-100 shadow-sm border-0" style="background-color: #FDFBF7;">
+                <div class="card-body d-flex flex-column">
+                    
+                    <h5 class="card-title fw-bold">${ruta.nombre}</h5>
+                    
+                    <p class="card-text text-muted mb-4">${ruta.descripcion}</p>
+                    
+                    <a href="rutaDetalle.html?id=${ruta.id}" class="btn btn-primary mt-auto w-100 fw-bold">
+                        Ver detalles
+                    </a>
+                    
                 </div>
-                
-            </div>`;
+            </div>
+        </div>`;
     }
-    
+
+    // Añadimos el contenedor con el botón de "Añadir ruta" justo después del bucle
+    listaruta += `
+    <div class="col-12 mt-4 mb-5 d-flex justify-content-center">
+        <a href="crearRuta.html" class="btn btn-success btn-lg px-5 fw-bold shadow-sm">
+            + Añadir una ruta
+        </a>
+    </div>
+`;
+
     // Inserto el root con el contenedor Grid de Bootstrap
     root.innerHTML = `
         <div class="container mt-5 mb-5">
@@ -53,6 +58,4 @@ document.addEventListener('DOMContentLoaded', async () => {
             </div>
         </div>
     `;
-
-    
 });

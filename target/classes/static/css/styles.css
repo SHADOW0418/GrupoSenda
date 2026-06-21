@@ -44,7 +44,20 @@
     transform: scale(1.1); 
 }
 
+.nav-link:focus,
+.nav-link:focus-visible,
+.nav-link:active {
+    outline: none !important;
+    box-shadow: none !important;
+    color: rgba(255, 255, 255, 0.55) !important;
+    background-color: transparent !important;
+}
+
 .colorSeleccionado{
     font-weight: bold;
+    color: #ffffff !important;
+}
+
+.nav-link.colorSeleccionado {
     color: #ffffff !important;
 }
